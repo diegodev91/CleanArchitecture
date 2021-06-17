@@ -10,6 +10,7 @@ namespace CleanArchitecture.Store.Domain.Entities
         public int Stock { get; set; }
         public string ImageUrl { get; set; }
         public decimal Price { get; set; }
+        public string Currency { get; set; }
         public Category Category { get; set; }
         public int CategoryId { get; set; }
     }
