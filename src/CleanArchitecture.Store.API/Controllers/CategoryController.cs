@@ -31,6 +31,7 @@ namespace CleanArchitecture.Store.API.Controllers
         }
 
         [HttpPost("Update")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<UpdateCategoryCommandResponse>> Update([FromBody] UpdateCategoryCommand updateCategoryCommand)
         {
@@ -39,6 +40,7 @@ namespace CleanArchitecture.Store.API.Controllers
         }
 
         [HttpPost("Delete")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<DeleteCategoryCommandResponse>> Delete([FromBody] DeleteCategoryCommand deleteCategoryCommand)
         {
@@ -46,13 +48,12 @@ namespace CleanArchitecture.Store.API.Controllers
             return Ok(response);
         }
 
-        [HttpGet("Get")]
+        [HttpGet("Get/{id}")]
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<CategoryProductListVm>>> Get()
+        public async Task<ActionResult<List<CategoryProductListVm>>> Get(int id)
         {
-            GetCategoryListWithProductsQuery getCategoriesListWithEventsQuery = new GetCategoryListWithProductsQuery();
-            var dtos = await this.mediator.Send(getCategoriesListWithEventsQuery);
+            var dtos = await this.mediator.Send(new GetCategoryListWithProductsQuery() { Id = id });
             return Ok(dtos);
         }
 
