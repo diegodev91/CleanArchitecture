@@ -7,7 +7,7 @@ using CleanArchitecture.Store.Domain.Entities;
 using MediatR;
 using System.Linq;
 
-namespace CleanArchitecture.Store.Application.Features.Categories.Commands
+namespace CleanArchitecture.Store.Application.Features.Categories.Commands.CreateCategory
 {
     public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, CreateCategoryCommandResponse>
     {

@@ -1,7 +1,7 @@
 using System;
 using MediatR;
 
-namespace CleanArchitecture.Store.Application.Features.Categories.Commands
+namespace CleanArchitecture.Store.Application.Features.Categories.Commands.CreateCategory
 {
     public class CreateCategoryCommand : IRequest<CreateCategoryCommandResponse>
     {   
