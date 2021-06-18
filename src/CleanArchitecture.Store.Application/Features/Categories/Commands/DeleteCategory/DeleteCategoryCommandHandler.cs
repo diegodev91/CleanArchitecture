@@ -6,30 +6,31 @@ using CleanArchitecture.Store.Application.Contracts.Persistence;
 using CleanArchitecture.Store.Domain.Entities;
 using MediatR;
 using System.Linq;
+using CleanArchitecture.Store.Application.Exceptions;
 
 namespace CleanArchitecture.Store.Application.Features.Categories.Commands.DeleteCategory
 {
-    public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryCommand, DeleteCategoryCommandResponse>
+    public class DeleteCategoryCommandHandler : IRequestHandler<DeleteCategoryCommand>
     {
         private readonly IAsyncRepository<Category> categoryRepository;
-        private readonly IMapper mapper;
 
-        public DeleteCategoryCommandHandler(IAsyncRepository<Category> categoryRepository,
-            IMapper mapper)
+        public DeleteCategoryCommandHandler(IAsyncRepository<Category> categoryRepository)
         {
-            this.mapper = mapper;
             this.categoryRepository = categoryRepository;
         }
 
 
-        public async Task<DeleteCategoryCommandResponse> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
         {
-            var deleteCategoryCommandResponse = new DeleteCategoryCommandResponse();
+            var categoryToDelete = await categoryRepository.GetByIdAsync(request.Id).ConfigureAwait(false);
+            if (categoryToDelete == null)
+            {
+                throw new NotFoundException(nameof(Category), request.Id);
+            }
 
-            await categoryRepository.DeleteAsync(await categoryRepository.GetByIdAsync(request.Id).ConfigureAwait(false));
-            deleteCategoryCommandResponse.Success = true;
+            await categoryRepository.DeleteAsync(categoryToDelete).ConfigureAwait(false);
 
-            return deleteCategoryCommandResponse;
+            return Unit.Value;
         }
     }
 }

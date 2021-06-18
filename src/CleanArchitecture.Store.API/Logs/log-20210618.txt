@@ -143,3 +143,421 @@ WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
 2021-06-18 00:24:16.128 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Create (CleanArchitecture.Store.API) in 28029.221ms
 2021-06-18 00:24:16.129 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Create (CleanArchitecture.Store.API)'
 2021-06-18 00:24:16.137 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/Category/Create application/json 96 - 200 - application/json;+charset=utf-8 28141.5824ms
+2021-06-18 02:28:27.255 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 02:28:27.304 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 02:28:27.305 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 02:28:27.305 -05:00 [INF] Hosting environment: Development
+2021-06-18 02:28:27.305 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 02:29:16.042 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/GetAll - -
+2021-06-18 02:29:16.115 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/GetAll - - - 307 0 - 78.0735ms
+2021-06-18 02:29:16.252 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/GetAll - -
+2021-06-18 02:29:16.305 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API)'
+2021-06-18 02:29:16.346 -05:00 [INF] Route matched with {action = "GetAllCategories", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryList.CategoryListVm]]] GetAllCategories() on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:29:17.450 -05:00 [WRN] No type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-06-18 02:29:17.575 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 02:29:19.986 -05:00 [ERR] Failed executing DbCommand (184ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider]
+FROM [Categories] AS [c]
+2021-06-18 02:29:20.052 -05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'CleanArchitecture.Store.Persistence.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Categories'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:3c21611b-ce3a-411a-964a-1d66de163ad9
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Categories'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:3c21611b-ce3a-411a-964a-1d66de163ad9
+Error Number:208,State:1,Class:16
+2021-06-18 02:29:20.315 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API) in 3963.8728ms
+2021-06-18 02:29:20.317 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API)'
+2021-06-18 02:29:20.644 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/GetAll - - - 400 - application/json 4392.3106ms
+2021-06-18 02:30:38.622 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 02:30:38.666 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 02:30:38.666 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 02:30:38.666 -05:00 [INF] Hosting environment: Development
+2021-06-18 02:30:38.667 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 02:30:42.868 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/GetAll - -
+2021-06-18 02:30:42.974 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/GetAll - - - 307 0 - 85.8432ms
+2021-06-18 02:30:43.067 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/GetAll - -
+2021-06-18 02:30:43.132 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API)'
+2021-06-18 02:30:43.181 -05:00 [INF] Route matched with {action = "GetAllCategories", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryList.CategoryListVm]]] GetAllCategories() on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:30:44.854 -05:00 [WRN] No type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-06-18 02:30:44.997 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 02:30:47.272 -05:00 [INF] Executed DbCommand (190ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider]
+FROM [Categories] AS [c]
+2021-06-18 02:30:47.580 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API) in 4392.0693ms
+2021-06-18 02:30:47.581 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API)'
+2021-06-18 02:30:47.862 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/GetAll - - - 400 - application/json 4794.5533ms
+2021-06-18 02:36:03.162 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 02:36:03.211 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 02:36:03.212 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 02:36:03.212 -05:00 [INF] Hosting environment: Development
+2021-06-18 02:36:03.212 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 02:37:45.331 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/GetAll - -
+2021-06-18 02:37:45.400 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/GetAll - - - 307 0 - 72.5262ms
+2021-06-18 02:37:45.540 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/GetAll - -
+2021-06-18 02:37:45.595 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API)'
+2021-06-18 02:37:45.635 -05:00 [INF] Route matched with {action = "GetAllCategories", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryList.CategoryListVm]]] GetAllCategories() on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:37:46.861 -05:00 [WRN] No type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-06-18 02:37:47.003 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 02:37:49.388 -05:00 [INF] Executed DbCommand (191ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider]
+FROM [Categories] AS [c]
+2021-06-18 02:37:49.541 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryList.CategoryListVm, CleanArchitecture.Store.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-18 02:37:49.647 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API) in 4005.9601ms
+2021-06-18 02:37:49.648 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API)'
+2021-06-18 02:37:49.654 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/GetAll - - - 200 - application/json;+charset=utf-8 4113.9987ms
+2021-06-18 02:40:55.745 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 02:40:55.788 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 02:40:55.788 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 02:40:55.788 -05:00 [INF] Hosting environment: Development
+2021-06-18 02:40:55.788 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 02:41:02.276 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get application/json 96
+2021-06-18 02:41:02.340 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get application/json 96 - 307 0 - 67.5507ms
+2021-06-18 02:41:02.462 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get application/json 96
+2021-06-18 02:41:02.511 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/Get application/json 96 - 404 0 - 48.5420ms
+2021-06-18 02:41:05.824 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/1 application/json 96
+2021-06-18 02:41:05.826 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/1 application/json 96 - 307 0 - 1.5610ms
+2021-06-18 02:41:05.832 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/1 application/json 96
+2021-06-18 02:41:05.849 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:41:05.910 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(Int32) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:41:06.058 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API) in 143.8473ms
+2021-06-18 02:41:06.061 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:41:06.264 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/Get/1 application/json 96 - 400 - application/json 432.0180ms
+2021-06-18 02:41:28.279 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/1 application/json 96
+2021-06-18 02:41:28.281 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/1 application/json 96 - 307 0 - 1.8744ms
+2021-06-18 02:41:28.283 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/1 application/json 96
+2021-06-18 02:41:28.284 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:41:28.284 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(Int32) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:42:29.377 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 02:42:29.425 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 02:42:29.425 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 02:42:29.425 -05:00 [INF] Hosting environment: Development
+2021-06-18 02:42:29.426 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 02:48:45.975 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/1 application/json 96
+2021-06-18 02:48:46.041 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/1 application/json 96 - 307 0 - 70.8552ms
+2021-06-18 02:48:46.203 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/1 application/json 96
+2021-06-18 02:48:46.253 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:48:46.305 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.GetCategoryListWithProductsQuery) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:48:51.725 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API) in 5412.7347ms
+2021-06-18 02:48:51.728 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:48:51.958 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/Get/1 application/json 96 - 400 - application/json 5754.1204ms
+2021-06-18 02:51:43.183 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 02:51:43.259 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 02:51:43.259 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 02:51:43.259 -05:00 [INF] Hosting environment: Development
+2021-06-18 02:51:43.259 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 02:51:46.038 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/1 application/json 96
+2021-06-18 02:51:46.097 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/1 application/json 96 - 307 0 - 63.5604ms
+2021-06-18 02:51:46.247 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/1 application/json 96
+2021-06-18 02:51:46.295 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:51:46.340 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.GetCategoryListWithProductsQuery) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:51:52.059 -05:00 [WRN] No type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-06-18 02:51:52.207 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 02:51:54.994 -05:00 [INF] Executed DbCommand (249ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider], [p].[Id], [p].[CategoryId], [p].[CreatedBy], [p].[CreatedDate], [p].[Currency], [p].[Description], [p].[ImageUrl], [p].[LastModifiedBy], [p].[LastModifiedDate], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Categories] AS [c]
+LEFT JOIN [Products] AS [p] ON [c].[Id] = [p].[CategoryId]
+WHERE [c].[Id] = @__id_0
+ORDER BY [c].[Id], [p].[Id]
+2021-06-18 02:51:55.121 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm, CleanArchitecture.Store.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-18 02:51:55.236 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API) in 8883.122ms
+2021-06-18 02:51:55.237 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:51:55.253 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/Get/1 application/json 96 - 200 - application/json;+charset=utf-8 9005.7342ms
+2021-06-18 02:52:05.979 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/6 application/json 96
+2021-06-18 02:52:05.980 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/6 application/json 96 - 307 0 - 1.1264ms
+2021-06-18 02:52:05.983 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/6 application/json 96
+2021-06-18 02:52:05.985 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:52:05.986 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.GetCategoryListWithProductsQuery) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:52:12.347 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 02:52:12.497 -05:00 [INF] Executed DbCommand (144ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider], [p].[Id], [p].[CategoryId], [p].[CreatedBy], [p].[CreatedDate], [p].[Currency], [p].[Description], [p].[ImageUrl], [p].[LastModifiedBy], [p].[LastModifiedDate], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Categories] AS [c]
+LEFT JOIN [Products] AS [p] ON [c].[Id] = [p].[CategoryId]
+WHERE [c].[Id] = @__id_0
+ORDER BY [c].[Id], [p].[Id]
+2021-06-18 02:52:12.498 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm, CleanArchitecture.Store.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-18 02:52:12.499 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API) in 6512.7577ms
+2021-06-18 02:52:12.499 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:52:12.499 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/Get/6 application/json 96 - 200 - application/json;+charset=utf-8 6515.7925ms
+2021-06-18 02:52:23.102 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96
+2021-06-18 02:52:23.103 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96 - 307 0 - 0.5079ms
+2021-06-18 02:52:23.105 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96
+2021-06-18 02:52:23.106 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:52:23.106 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.GetCategoryListWithProductsQuery) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:52:23.121 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 02:52:23.286 -05:00 [INF] Executed DbCommand (163ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider], [p].[Id], [p].[CategoryId], [p].[CreatedBy], [p].[CreatedDate], [p].[Currency], [p].[Description], [p].[ImageUrl], [p].[LastModifiedBy], [p].[LastModifiedDate], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Categories] AS [c]
+LEFT JOIN [Products] AS [p] ON [c].[Id] = [p].[CategoryId]
+WHERE [c].[Id] = @__id_0
+ORDER BY [c].[Id], [p].[Id]
+2021-06-18 02:52:23.291 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm, CleanArchitecture.Store.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-18 02:52:23.291 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API) in 185.5554ms
+2021-06-18 02:52:23.292 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:52:23.292 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96 - 200 - application/json;+charset=utf-8 186.9231ms
+2021-06-18 02:52:38.933 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96
+2021-06-18 02:52:38.935 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96 - 307 0 - 1.7670ms
+2021-06-18 02:52:38.942 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96
+2021-06-18 02:52:38.943 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:52:38.943 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.GetCategoryListWithProductsQuery) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:52:42.077 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 02:52:42.220 -05:00 [INF] Executed DbCommand (142ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider], [p].[Id], [p].[CategoryId], [p].[CreatedBy], [p].[CreatedDate], [p].[Currency], [p].[Description], [p].[ImageUrl], [p].[LastModifiedBy], [p].[LastModifiedDate], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Categories] AS [c]
+LEFT JOIN [Products] AS [p] ON [c].[Id] = [p].[CategoryId]
+WHERE [c].[Id] = @__id_0
+ORDER BY [c].[Id], [p].[Id]
+2021-06-18 02:52:49.726 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm, CleanArchitecture.Store.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-18 02:52:49.727 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API) in 10783.3277ms
+2021-06-18 02:52:49.727 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:52:49.730 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96 - 200 - application/json;+charset=utf-8 10784.6498ms
+2021-06-18 02:52:52.468 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96
+2021-06-18 02:52:52.468 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96 - 307 0 - 0.2575ms
+2021-06-18 02:52:52.470 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96
+2021-06-18 02:52:52.475 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:52:52.475 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.GetCategoryListWithProductsQuery) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:53:02.816 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 02:53:15.809 -05:00 [INF] Executed DbCommand (141ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider], [p].[Id], [p].[CategoryId], [p].[CreatedBy], [p].[CreatedDate], [p].[Currency], [p].[Description], [p].[ImageUrl], [p].[LastModifiedBy], [p].[LastModifiedDate], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Categories] AS [c]
+LEFT JOIN [Products] AS [p] ON [c].[Id] = [p].[CategoryId]
+WHERE [c].[Id] = @__id_0
+ORDER BY [c].[Id], [p].[Id]
+2021-06-18 02:53:15.813 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm, CleanArchitecture.Store.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-18 02:53:15.813 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API) in 23336.8912ms
+2021-06-18 02:53:15.813 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:53:15.813 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96 - 200 - application/json;+charset=utf-8 23341.9492ms
+2021-06-18 02:53:18.031 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96
+2021-06-18 02:53:18.032 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96 - 307 0 - 1.5679ms
+2021-06-18 02:53:18.037 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96
+2021-06-18 02:53:18.038 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:53:18.038 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.GetCategoryListWithProductsQuery) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:54:09.492 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 02:54:09.639 -05:00 [INF] Executed DbCommand (144ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider], [p].[Id], [p].[CategoryId], [p].[CreatedBy], [p].[CreatedDate], [p].[Currency], [p].[Description], [p].[ImageUrl], [p].[LastModifiedBy], [p].[LastModifiedDate], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Categories] AS [c]
+LEFT JOIN [Products] AS [p] ON [c].[Id] = [p].[CategoryId]
+WHERE [c].[Id] = @__id_0
+ORDER BY [c].[Id], [p].[Id]
+2021-06-18 02:54:09.689 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm, CleanArchitecture.Store.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-18 02:54:09.689 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API) in 51650.811ms
+2021-06-18 02:54:09.689 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:54:09.689 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96 - 200 - application/json;+charset=utf-8 51651.7929ms
+2021-06-18 02:54:11.588 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96
+2021-06-18 02:54:11.588 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96 - 307 0 - 0.3400ms
+2021-06-18 02:54:11.590 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96
+2021-06-18 02:54:11.591 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:54:11.591 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.GetCategoryListWithProductsQuery) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:54:29.222 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 02:54:29.297 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 02:54:29.297 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 02:54:29.297 -05:00 [INF] Hosting environment: Development
+2021-06-18 02:54:29.297 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 02:55:05.732 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96
+2021-06-18 02:55:05.802 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96 - 307 0 - 73.5001ms
+2021-06-18 02:55:05.895 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96
+2021-06-18 02:55:05.936 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:55:05.976 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.GetCategoryListWithProductsQuery) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:56:38.000 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 02:56:38.049 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 02:56:38.050 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 02:56:38.050 -05:00 [INF] Hosting environment: Development
+2021-06-18 02:56:38.050 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 02:57:30.938 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96
+2021-06-18 02:57:31.006 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96 - 307 0 - 71.0065ms
+2021-06-18 02:57:31.111 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96
+2021-06-18 02:57:31.153 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:57:31.199 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(Int32) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:57:39.004 -05:00 [WRN] No type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-06-18 02:57:39.127 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 02:57:41.702 -05:00 [INF] Executed DbCommand (211ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider], [p].[Id], [p].[CategoryId], [p].[CreatedBy], [p].[CreatedDate], [p].[Currency], [p].[Description], [p].[ImageUrl], [p].[LastModifiedBy], [p].[LastModifiedDate], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Categories] AS [c]
+LEFT JOIN [Products] AS [p] ON [c].[Id] = [p].[CategoryId]
+WHERE [c].[Id] = @__id_0
+ORDER BY [c].[Id], [p].[Id]
+2021-06-18 02:57:41.881 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm, CleanArchitecture.Store.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-18 02:57:41.974 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API) in 10769.2766ms
+2021-06-18 02:57:41.975 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:57:41.982 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96 - 200 - application/json;+charset=utf-8 10870.5217ms
+2021-06-18 02:58:12.348 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 02:58:12.429 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 02:58:12.429 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 02:58:12.429 -05:00 [INF] Hosting environment: Development
+2021-06-18 02:58:12.429 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 02:59:17.825 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 02:59:17.872 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 02:59:17.872 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 02:59:17.872 -05:00 [INF] Hosting environment: Development
+2021-06-18 02:59:17.872 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 02:59:42.632 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96
+2021-06-18 02:59:42.694 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/3 application/json 96 - 307 0 - 66.6285ms
+2021-06-18 02:59:42.866 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96
+2021-06-18 02:59:42.913 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:59:42.961 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(Int32) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 02:59:53.720 -05:00 [WRN] No type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-06-18 02:59:53.978 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 02:59:56.650 -05:00 [INF] Executed DbCommand (250ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider], [p].[Id], [p].[CategoryId], [p].[CreatedBy], [p].[CreatedDate], [p].[Currency], [p].[Description], [p].[ImageUrl], [p].[LastModifiedBy], [p].[LastModifiedDate], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Categories] AS [c]
+LEFT JOIN [Products] AS [p] ON [c].[Id] = [p].[CategoryId]
+WHERE [c].[Id] = @__id_0
+ORDER BY [c].[Id], [p].[Id]
+2021-06-18 02:59:56.824 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm, CleanArchitecture.Store.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-18 02:59:56.933 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API) in 13966.7047ms
+2021-06-18 02:59:56.934 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 02:59:56.941 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/Get/3 application/json 96 - 200 - application/json;+charset=utf-8 14074.5282ms
+2021-06-18 16:59:56.348 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 16:59:56.393 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 16:59:56.393 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 16:59:56.393 -05:00 [INF] Hosting environment: Development
+2021-06-18 16:59:56.393 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 17:01:04.799 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5000/Category/Update/4 application/json 100
+2021-06-18 17:01:04.861 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5000/Category/Update/4 application/json 100 - 307 0 - 65.7541ms
+2021-06-18 17:01:05.011 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/Category/Update/4 application/json 100
+2021-06-18 17:01:05.059 -05:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2021-06-18 17:01:05.059 -05:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2021-06-18 17:01:05.064 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:5001/Category/Update/4 application/json 100 - 405 0 - 53.2296ms
+2021-06-18 17:01:41.314 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 17:01:41.358 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 17:01:41.359 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 17:01:41.359 -05:00 [INF] Hosting environment: Development
+2021-06-18 17:01:41.359 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 17:01:58.097 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5000/Category/Update/4 application/json 100
+2021-06-18 17:01:58.155 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5000/Category/Update/4 application/json 100 - 307 0 - 62.1869ms
+2021-06-18 17:01:58.284 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/Category/Update/4 application/json 100
+2021-06-18 17:01:58.326 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Update (CleanArchitecture.Store.API)'
+2021-06-18 17:01:58.383 -05:00 [INF] Route matched with {action = "Update", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Update(Int32, CleanArchitecture.Store.Application.Features.Categories.Commands.UpdateCategory.UpdateCategoryCommand) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 17:02:23.229 -05:00 [WRN] No type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-06-18 17:02:23.346 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 17:02:27.029 -05:00 [INF] Executed DbCommand (270ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__p_0
+2021-06-18 17:02:27.573 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Update (CleanArchitecture.Store.API) in 29182.775ms
+2021-06-18 17:02:27.575 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Update (CleanArchitecture.Store.API)'
+2021-06-18 17:02:40.553 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:5001/Category/Update/4 application/json 100 - 400 - application/json 42269.3136ms
+2021-06-18 17:04:33.190 -05:00 [INF] Now listening on: https://localhost:5001
+2021-06-18 17:04:33.239 -05:00 [INF] Now listening on: http://localhost:5000
+2021-06-18 17:04:33.240 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-06-18 17:04:33.240 -05:00 [INF] Hosting environment: Development
+2021-06-18 17:04:33.240 -05:00 [INF] Content root path: /Users/dcastillo/Projects/CleanArchitecture/src/CleanArchitecture.Store.API
+2021-06-18 17:17:52.384 -05:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5000/Category/Update/4 application/json 100
+2021-06-18 17:17:52.439 -05:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5000/Category/Update/4 application/json 100 - 307 0 - 57.5948ms
+2021-06-18 17:17:52.622 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/Category/Update/4 application/json 100
+2021-06-18 17:17:52.677 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Update (CleanArchitecture.Store.API)'
+2021-06-18 17:17:52.730 -05:00 [INF] Route matched with {action = "Update", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Update(Int32, CleanArchitecture.Store.Application.Features.Categories.Commands.UpdateCategory.UpdateCategoryCommand) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 17:18:07.671 -05:00 [WRN] No type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-06-18 17:18:07.823 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 17:18:10.124 -05:00 [INF] Executed DbCommand (185ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__p_0
+2021-06-18 17:18:28.778 -05:00 [INF] Executed DbCommand (111ms) [Parameters=[@p7='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (Size = 2000), @p6='?' (Size = 500)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Categories] SET [CreatedBy] = @p0, [CreatedDate] = @p1, [EndOfContract] = @p2, [LastModifiedBy] = @p3, [LastModifiedDate] = @p4, [Name] = @p5, [Provider] = @p6
+WHERE [Id] = @p7;
+SELECT @@ROWCOUNT;
+2021-06-18 17:18:30.405 -05:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 204
+2021-06-18 17:18:30.419 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Update (CleanArchitecture.Store.API) in 37678.5666ms
+2021-06-18 17:18:30.421 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Update (CleanArchitecture.Store.API)'
+2021-06-18 17:18:30.454 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:5001/Category/Update/4 application/json 100 - 204 - - 37831.6235ms
+2021-06-18 17:18:41.893 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/GetAll - -
+2021-06-18 17:18:41.906 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/GetAll - - - 307 0 - 12.4234ms
+2021-06-18 17:18:41.909 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/GetAll - -
+2021-06-18 17:18:41.913 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API)'
+2021-06-18 17:18:41.917 -05:00 [INF] Route matched with {action = "GetAllCategories", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryList.CategoryListVm]]] GetAllCategories() on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 17:18:41.973 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 17:18:42.097 -05:00 [INF] Executed DbCommand (109ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider]
+FROM [Categories] AS [c]
+2021-06-18 17:18:42.122 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryList.CategoryListVm, CleanArchitecture.Store.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-18 17:18:42.168 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API) in 250.827ms
+2021-06-18 17:18:42.168 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API)'
+2021-06-18 17:18:42.168 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/GetAll - - - 200 - application/json;+charset=utf-8 259.0403ms
+2021-06-18 17:18:48.591 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/Get/4 application/json 96
+2021-06-18 17:18:48.592 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/Get/4 application/json 96 - 307 0 - 0.8320ms
+2021-06-18 17:18:48.594 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/Get/4 application/json 96
+2021-06-18 17:18:48.595 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 17:18:48.600 -05:00 [INF] Route matched with {action = "Get", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm]]] Get(Int32) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 17:18:48.618 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 17:18:48.848 -05:00 [INF] Executed DbCommand (107ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider], [p].[Id], [p].[CategoryId], [p].[CreatedBy], [p].[CreatedDate], [p].[Currency], [p].[Description], [p].[ImageUrl], [p].[LastModifiedBy], [p].[LastModifiedDate], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Categories] AS [c]
+LEFT JOIN [Products] AS [p] ON [c].[Id] = [p].[CategoryId]
+WHERE [c].[Id] = @__id_0
+ORDER BY [c].[Id], [p].[Id]
+2021-06-18 17:18:48.867 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById.CategoryProductListVm, CleanArchitecture.Store.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-18 17:18:48.875 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API) in 274.5567ms
+2021-06-18 17:18:48.875 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Get (CleanArchitecture.Store.API)'
+2021-06-18 17:18:48.875 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/Get/4 application/json 96 - 200 - application/json;+charset=utf-8 280.9148ms
+2021-06-18 17:19:08.216 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5000/Category/Delete/4 application/json 96
+2021-06-18 17:19:08.216 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5000/Category/Delete/4 application/json 96 - 307 0 - 0.2245ms
+2021-06-18 17:19:08.218 -05:00 [INF] Request starting HTTP/1.1 DELETE https://localhost:5001/Category/Delete/4 application/json 96
+2021-06-18 17:19:08.219 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Delete (CleanArchitecture.Store.API)'
+2021-06-18 17:19:08.222 -05:00 [INF] Route matched with {action = "Delete", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Delete(Int32) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 17:19:19.994 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 17:19:20.104 -05:00 [INF] Executed DbCommand (106ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__p_0
+2021-06-18 17:19:22.493 -05:00 [INF] Executed DbCommand (275ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Categories]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2021-06-18 17:19:24.400 -05:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 204
+2021-06-18 17:19:24.400 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Delete (CleanArchitecture.Store.API) in 16177.4913ms
+2021-06-18 17:19:24.400 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Delete (CleanArchitecture.Store.API)'
+2021-06-18 17:19:24.400 -05:00 [INF] Request finished HTTP/1.1 DELETE https://localhost:5001/Category/Delete/4 application/json 96 - 204 - - 16182.1543ms
+2021-06-18 17:19:27.227 -05:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5000/Category/Delete/4 application/json 96
+2021-06-18 17:19:27.231 -05:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5000/Category/Delete/4 application/json 96 - 307 0 - 3.8055ms
+2021-06-18 17:19:27.233 -05:00 [INF] Request starting HTTP/1.1 DELETE https://localhost:5001/Category/Delete/4 application/json 96
+2021-06-18 17:19:27.234 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Delete (CleanArchitecture.Store.API)'
+2021-06-18 17:19:27.234 -05:00 [INF] Route matched with {action = "Delete", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Delete(Int32) on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 17:19:33.150 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 17:19:33.271 -05:00 [INF] Executed DbCommand (118ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__p_0
+2021-06-18 17:19:33.401 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.Delete (CleanArchitecture.Store.API) in 6166.9721ms
+2021-06-18 17:19:33.407 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.Delete (CleanArchitecture.Store.API)'
+2021-06-18 17:19:33.721 -05:00 [INF] Request finished HTTP/1.1 DELETE https://localhost:5001/Category/Delete/4 application/json 96 - 404 - application/json 6487.9548ms
+2021-06-18 17:19:42.655 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Category/GetAll - -
+2021-06-18 17:19:42.655 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Category/GetAll - - - 307 0 - 0.3176ms
+2021-06-18 17:19:42.659 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Category/GetAll - -
+2021-06-18 17:19:42.659 -05:00 [INF] Executing endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API)'
+2021-06-18 17:19:42.659 -05:00 [INF] Route matched with {action = "GetAllCategories", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryList.CategoryListVm]]] GetAllCategories() on controller CleanArchitecture.Store.API.Controllers.CategoryController (CleanArchitecture.Store.API).
+2021-06-18 17:19:42.660 -05:00 [INF] Entity Framework Core 5.0.7 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-06-18 17:19:42.767 -05:00 [INF] Executed DbCommand (107ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CreatedBy], [c].[CreatedDate], [c].[EndOfContract], [c].[LastModifiedBy], [c].[LastModifiedDate], [c].[Name], [c].[Provider]
+FROM [Categories] AS [c]
+2021-06-18 17:19:42.768 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryList.CategoryListVm, CleanArchitecture.Store.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-06-18 17:19:42.768 -05:00 [INF] Executed action CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API) in 109.1466ms
+2021-06-18 17:19:42.769 -05:00 [INF] Executed endpoint 'CleanArchitecture.Store.API.Controllers.CategoryController.GetAllCategories (CleanArchitecture.Store.API)'
+2021-06-18 17:19:42.769 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Category/GetAll - - - 200 - application/json;+charset=utf-8 110.2857ms

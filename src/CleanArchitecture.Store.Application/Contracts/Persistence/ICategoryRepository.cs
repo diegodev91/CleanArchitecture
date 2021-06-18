@@ -6,6 +6,6 @@ namespace CleanArchitecture.Store.Application.Contracts.Persistence
 {
     public interface ICategoryRepository : IAsyncRepository<Category>
     {
-        Task<List<Category>> GetCategoriesWithProducts();
+        Task<List<Category>> GetCategoryByIdWithProducts(int Id);
     }
 }

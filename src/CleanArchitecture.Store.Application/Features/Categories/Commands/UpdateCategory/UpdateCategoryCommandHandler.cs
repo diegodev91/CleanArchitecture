@@ -6,10 +6,11 @@ using CleanArchitecture.Store.Application.Contracts.Persistence;
 using CleanArchitecture.Store.Domain.Entities;
 using MediatR;
 using System.Linq;
+using CleanArchitecture.Store.Application.Exceptions;
 
 namespace CleanArchitecture.Store.Application.Features.Categories.Commands.UpdateCategory
 {
-    public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, UpdateCategoryCommandResponse>
+    public class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand>
     {
         private readonly IAsyncRepository<Category> categoryRepository;
         private readonly IMapper mapper;
@@ -22,26 +23,27 @@ namespace CleanArchitecture.Store.Application.Features.Categories.Commands.Updat
         }
 
 
-        public async Task<UpdateCategoryCommandResponse> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
-            var UpdateCategoryCommandResponse = new UpdateCategoryCommandResponse();
+            var categoryToUpdate = await categoryRepository.GetByIdAsync(request.Id).ConfigureAwait(false);
+
+            if (categoryToUpdate == null)
+            {
+                throw new NotFoundException(nameof(Category), request.Id);
+            }
 
             var validationResult = await new UpdateCategoryCommandValidator().ValidateAsync(request).ConfigureAwait(false);
 
             if (validationResult.Errors.Count > 0)
             {
-                UpdateCategoryCommandResponse.Success = false;
-                UpdateCategoryCommandResponse.ValidationErrors = (from error in validationResult.Errors
-                                                                  select error.ErrorMessage).ToList();
-            }
-            if (UpdateCategoryCommandResponse.Success)
-            {
-                var category = new Category() { Name = request.Name, Provider = request.Provider, EndOfContract = request.EndOfContract };
-                await categoryRepository.UpdateAsync(category);
-                UpdateCategoryCommandResponse.Success = true;
+                throw new ValidationException(validationResult);
             }
 
-            return UpdateCategoryCommandResponse;
+            this.mapper.Map(request, categoryToUpdate, typeof(UpdateCategoryCommand), typeof(Category)); //TODO: validar update, delete y copiar
+
+            await this.categoryRepository.UpdateAsync(categoryToUpdate);
+
+            return Unit.Value;
         }
     }
 }

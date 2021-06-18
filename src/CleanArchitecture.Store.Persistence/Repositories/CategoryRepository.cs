@@ -13,9 +13,11 @@ namespace CleanArchitecture.Store.Persistence.Repositories
         {
         }
 
-        public async Task<List<Category>> GetCategoriesWithProducts()
+        public async Task<List<Category>> GetCategoryByIdWithProducts(int id)
         {
-            var categories = await this._dbContext.Categories.Include(x => x.Products).ToListAsync();
+            var categories = await this._dbContext.Categories
+                                    .Where(x => x.Id == id)
+                                    .Include(x => x.Products).ToListAsync();
             return categories;
         }
     }
