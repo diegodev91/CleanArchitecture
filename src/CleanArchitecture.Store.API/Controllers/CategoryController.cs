@@ -30,22 +30,23 @@ namespace CleanArchitecture.Store.API.Controllers
             return Ok(response);
         }
 
-        [HttpPost("Update")]
+        [HttpPut("Update/{id}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<UpdateCategoryCommandResponse>> Update([FromBody] UpdateCategoryCommand updateCategoryCommand)
+        public async Task<ActionResult> Update(int id, [FromBody] UpdateCategoryCommand updateCategoryCommand)
         {
+            updateCategoryCommand.Id = id;
             var response = await this.mediator.Send(updateCategoryCommand);
-            return Ok(response);
+            return NoContent();
         }
 
-        [HttpPost("Delete")]
+        [HttpDelete("Delete/{id}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<DeleteCategoryCommandResponse>> Delete([FromBody] DeleteCategoryCommand deleteCategoryCommand)
+        public async Task<ActionResult> Delete(int id)
         {
-            var response = await this.mediator.Send(deleteCategoryCommand);
-            return Ok(response);
+            var response = await this.mediator.Send(new DeleteCategoryCommand() { Id = id });
+            return NoContent();
         }
 
         [HttpGet("Get/{id}")]
