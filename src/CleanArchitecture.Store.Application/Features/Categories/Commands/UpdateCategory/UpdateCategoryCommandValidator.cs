@@ -1,11 +1,11 @@
 using System;
 using FluentValidation;
 
-namespace CleanArchitecture.Store.Application.Features.Categories.Commands
+namespace CleanArchitecture.Store.Application.Features.Categories.Commands.UpdateCategory
 {
-    public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
+    public class UpdateCategoryCommandValidator : AbstractValidator<UpdateCategoryCommand>
     {
-        public CreateCategoryCommandValidator()
+        public UpdateCategoryCommandValidator()
         {
             RuleFor(p => p.Name)
                 .NotEmpty().WithMessage("{PropertyName} is required.")

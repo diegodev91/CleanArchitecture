@@ -1,6 +1,6 @@
 using System;
 
-namespace CleanArchitecture.Store.Application.Features.Categories.Commands
+namespace CleanArchitecture.Store.Application.Features.Categories.Commands.CreateCategory
 {
     public class CreateCategoryDto
     {
