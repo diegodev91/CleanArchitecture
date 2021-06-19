@@ -1,5 +1,6 @@
 using AutoMapper;
 using CleanArchitecture.Store.Application.Features.Categories.Commands.CreateCategory;
+using CleanArchitecture.Store.Application.Features.Categories.Commands.CreateProduct;
 using CleanArchitecture.Store.Application.Features.Categories.Commands.UpdateCategory;
 using CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById;
 using CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryList;
@@ -17,6 +18,9 @@ namespace CleanArchitecture.Store.Application.Profiles
             CreateMap<Category, CreateCategoryDto>();
             CreateMap<Category, CategoryListVm>();
             CreateMap<Category, CategoryProductListVm>();
+
+            CreateMap<CreateProductCommand, Product>();
+            CreateMap<Product, CreateProductDto>();
         }
     }
 }
