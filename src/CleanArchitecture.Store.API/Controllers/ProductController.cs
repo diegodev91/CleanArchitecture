@@ -1,7 +1,10 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CleanArchitecture.Store.Application.Features.Products.Commands.CreateProduct;
 using CleanArchitecture.Store.Application.Features.Products.Commands.DeleteProduct;
 using CleanArchitecture.Store.Application.Features.Products.Commands.UpdateProduct;
+using CleanArchitecture.Store.Application.Features.Products.Queries.GetProductById;
+using CleanArchitecture.Store.Application.Features.Products.Queries.GetProductList;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -46,21 +49,21 @@ namespace CleanArchitecture.Store.API.Controllers
             return NoContent();
         }
 
-        // [HttpGet("Get/{id}")]
-        // [ProducesDefaultResponseType]
-        // [ProducesResponseType(StatusCodes.Status200OK)]
-        // public async Task<ActionResult<List<ProductProductListVm>>> Get(int id)
-        // {
-        //     var dtos = await this.mediator.Send(new GetProductListWithProductsQuery() { Id = id });
-        //     return Ok(dtos);
-        // }
+        [HttpGet("Get/{id}")]
+        [ProducesDefaultResponseType]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<ProductDto>> Get(int id)
+        {
+            var dto = await this.mediator.Send(new GetProductByIdQuery() { Id = id });
+            return Ok(dto);
+        }
 
-        // [HttpGet("GetAll")]
-        // [ProducesResponseType(StatusCodes.Status200OK)]
-        // public async Task<ActionResult<List<ProductListVm>>> GetAllCategories()
-        // {
-        //     var dtos = await this.mediator.Send(new GetProductListQuery());
-        //     return Ok(dtos);
-        // }
+        [HttpGet("GetAll")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<List<ProductListVm>>> GetAllCategories()
+        {
+            var dtos = await this.mediator.Send(new GetProductListQuery());
+            return Ok(dtos);
+        }
     }
 }
