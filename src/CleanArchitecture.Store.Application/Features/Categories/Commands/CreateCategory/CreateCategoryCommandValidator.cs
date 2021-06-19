@@ -10,12 +10,12 @@ namespace CleanArchitecture.Store.Application.Features.Categories.Commands.Creat
             RuleFor(p => p.Name)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()
-                .MaximumLength(50).WithMessage("{PropertyName} must not exceed 10 characters.");
+                .MaximumLength(50).WithMessage("{PropertyName} must not exceed 50 characters.");
 
             RuleFor(p => p.Provider)
             .NotEmpty().WithMessage("{PropertyName} is required.")
             .NotNull()
-            .MaximumLength(50).WithMessage("{PropertyName} must not exceed 10 characters.");
+            .MaximumLength(50).WithMessage("{PropertyName} must not exceed 50 characters.");
 
             RuleFor(p => p.EndOfContract)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
