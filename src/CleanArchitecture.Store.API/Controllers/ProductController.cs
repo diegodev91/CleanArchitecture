@@ -1,5 +1,7 @@
 using System.Threading.Tasks;
-using CleanArchitecture.Store.Application.Features.Categories.Commands.CreateProduct;
+using CleanArchitecture.Store.Application.Features.Products.Commands.CreateProduct;
+using CleanArchitecture.Store.Application.Features.Products.Commands.DeleteProduct;
+using CleanArchitecture.Store.Application.Features.Products.Commands.UpdateProduct;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,24 +27,24 @@ namespace CleanArchitecture.Store.API.Controllers
             return Ok(response);
         }
 
-        // [HttpPut("Update/{id}")]
-        // [ProducesResponseType(StatusCodes.Status404NotFound)]
-        // [ProducesResponseType(StatusCodes.Status200OK)]
-        // public async Task<ActionResult> Update(int id, [FromBody] UpdateProductCommand updateProductCommand)
-        // {
-        //     updateProductCommand.Id = id;
-        //     var response = await this.mediator.Send(updateProductCommand);
-        //     return NoContent();
-        // }
+        [HttpPut("Update/{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult> Update(int id, [FromBody] UpdateProductCommand updateProductCommand)
+        {
+            updateProductCommand.Id = id;
+            var response = await this.mediator.Send(updateProductCommand);
+            return NoContent();
+        }
 
-        // [HttpDelete("Delete/{id}")]
-        // [ProducesResponseType(StatusCodes.Status404NotFound)]
-        // [ProducesResponseType(StatusCodes.Status200OK)]
-        // public async Task<ActionResult> Delete(int id)
-        // {
-        //     var response = await this.mediator.Send(new DeleteProductCommand() { Id = id });
-        //     return NoContent();
-        // }
+        [HttpDelete("Delete/{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var response = await this.mediator.Send(new DeleteProductCommand() { Id = id });
+            return NoContent();
+        }
 
         // [HttpGet("Get/{id}")]
         // [ProducesDefaultResponseType]

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,7 +6,7 @@ using CleanArchitecture.Store.Domain.Entities;
 using MediatR;
 using System.Linq;
 
-namespace CleanArchitecture.Store.Application.Features.Categories.Commands.CreateProduct
+namespace CleanArchitecture.Store.Application.Features.Products.Commands.CreateProduct
 {
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, CreateProductCommandResponse>
     {
@@ -44,4 +43,4 @@ namespace CleanArchitecture.Store.Application.Features.Categories.Commands.Creat
             return CreateProductCommandResponse;
         }
     }
-}   
+}

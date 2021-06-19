@@ -1,10 +1,11 @@
 using System;
 using MediatR;
 
-namespace CleanArchitecture.Store.Application.Features.Products.Commands.CreateProduct
+namespace CleanArchitecture.Store.Application.Features.Products.Commands.UpdateProduct
 {
-    public class CreateProductCommand : IRequest<CreateProductCommandResponse>
+    public class UpdateProductCommand : IRequest
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public int Stock { get; set; }

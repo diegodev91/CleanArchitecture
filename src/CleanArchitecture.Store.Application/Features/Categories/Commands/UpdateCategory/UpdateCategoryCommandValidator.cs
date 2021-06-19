@@ -7,6 +7,10 @@ namespace CleanArchitecture.Store.Application.Features.Categories.Commands.Updat
     {
         public UpdateCategoryCommandValidator()
         {
+            RuleFor(p => p.Id)
+                .NotEmpty().WithMessage("{PropertyName} is required.")
+                .NotNull();
+
             RuleFor(p => p.Name)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()

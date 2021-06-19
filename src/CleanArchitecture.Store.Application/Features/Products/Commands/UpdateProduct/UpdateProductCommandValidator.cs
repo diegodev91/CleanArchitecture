@@ -1,12 +1,16 @@
 using System;
 using FluentValidation;
 
-namespace CleanArchitecture.Store.Application.Features.Categories.Commands.CreateProduct
+namespace CleanArchitecture.Store.Application.Features.Products.Commands.UpdateProduct
 {
-    public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
+    public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
     {
-        public CreateProductCommandValidator()
+        public UpdateProductCommandValidator()
         {
+            RuleFor(p => p.Id)
+                .NotEmpty().WithMessage("{PropertyName} is required.")
+                .NotNull();
+
             RuleFor(p => p.Name)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()
@@ -35,7 +39,6 @@ namespace CleanArchitecture.Store.Application.Features.Categories.Commands.Creat
             RuleFor(p => p.CategoryId)
             .NotEqual(0).WithMessage("{PropertyName} should not be 0")
             .NotEmpty().WithMessage("{PropertyName} is required.");
-
         }
     }
 }

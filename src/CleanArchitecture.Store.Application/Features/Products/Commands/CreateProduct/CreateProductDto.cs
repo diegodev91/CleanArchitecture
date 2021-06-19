@@ -1,6 +1,6 @@
 using System;
 
-namespace CleanArchitecture.Store.Application.Features.Categories.Commands.CreateProduct
+namespace CleanArchitecture.Store.Application.Features.Products.Commands.CreateProduct
 {
     public class CreateProductDto
     {

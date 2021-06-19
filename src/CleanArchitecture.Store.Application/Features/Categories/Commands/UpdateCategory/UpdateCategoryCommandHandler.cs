@@ -39,7 +39,7 @@ namespace CleanArchitecture.Store.Application.Features.Categories.Commands.Updat
                 throw new ValidationException(validationResult);
             }
 
-            this.mapper.Map(request, categoryToUpdate, typeof(UpdateCategoryCommand), typeof(Category)); //TODO: validar update, delete y copiar
+            this.mapper.Map(request, categoryToUpdate, typeof(UpdateCategoryCommand), typeof(Category));
 
             await this.categoryRepository.UpdateAsync(categoryToUpdate);
 
