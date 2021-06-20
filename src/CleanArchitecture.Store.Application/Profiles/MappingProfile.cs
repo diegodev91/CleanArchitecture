@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AutoMapper;
 using CleanArchitecture.Store.Application.Features.Categories.Commands.CreateCategory;
 using CleanArchitecture.Store.Application.Features.Categories.Commands.UpdateCategory;
@@ -7,6 +8,8 @@ using CleanArchitecture.Store.Application.Features.Products.Commands.CreateProdu
 using CleanArchitecture.Store.Application.Features.Products.Commands.UpdateProduct;
 using CleanArchitecture.Store.Application.Features.Products.Queries.GetProductById;
 using CleanArchitecture.Store.Application.Features.Products.Queries.GetProductList;
+using CleanArchitecture.Store.Application.Models.Cache;
+using CleanArchitecture.Store.Application.Models.Category;
 using CleanArchitecture.Store.Domain.Entities;
 
 namespace CleanArchitecture.Store.Application.Profiles
@@ -27,6 +30,11 @@ namespace CleanArchitecture.Store.Application.Profiles
             CreateMap<Product, CreateProductDto>();
             CreateMap<Product, ProductDto>();
             CreateMap<Product, ProductListVm>();
+
+            CreateMap<CategoryBaseInfo, CategoryProductListVm>();
+            CreateMap<Category, CategoryCacheInfo>()
+                .ForMember(dm => dm.CategoryId,
+                    opt => opt.MapFrom(src => src.Id));
         }
     }
 }
