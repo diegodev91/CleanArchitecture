@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using CleanArchitecture.Store.Domain.Entities;
 
-namespace CleanArchitecture.Store.Application.Models.Category
+namespace CleanArchitecture.Store.Application.Models
 {
     public class CategoryBaseInfo
     {

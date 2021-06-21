@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CleanArchitecture.Store.Application.Models.Category;
+using CleanArchitecture.Store.Application.Models;
 using CleanArchitecture.Store.Domain.Entities;
 
 namespace CleanArchitecture.Store.Application.Contracts.Persistence
