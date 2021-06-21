@@ -1,6 +1,7 @@
 ﻿using System;
 using CleanArchitecture.Store.Application.Contracts.Infrastructure;
 using CleanArchitecture.Store.Infrastructure.Cache;
+using CleanArchitecture.Store.Infrastructure.ExternalServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,6 +16,9 @@ namespace CleanArchitecture.Store.Infrastructure
                 setupAction.ExpirationScanFrequency = TimeSpan.FromMinutes(3);
             });
             services.AddScoped<ICacheService, InMemoryCacheService>();
+            services.AddScoped<IExternalProductService, ExternalProductService>();
+            services.AddHttpClient<IExternalProductService>();
+
             return services;
         }
     }

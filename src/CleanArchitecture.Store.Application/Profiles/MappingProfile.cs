@@ -8,8 +8,8 @@ using CleanArchitecture.Store.Application.Features.Products.Commands.CreateProdu
 using CleanArchitecture.Store.Application.Features.Products.Commands.UpdateProduct;
 using CleanArchitecture.Store.Application.Features.Products.Queries.GetProductById;
 using CleanArchitecture.Store.Application.Features.Products.Queries.GetProductList;
+using CleanArchitecture.Store.Application.Models;
 using CleanArchitecture.Store.Application.Models.Cache;
-using CleanArchitecture.Store.Application.Models.Category;
 using CleanArchitecture.Store.Domain.Entities;
 
 namespace CleanArchitecture.Store.Application.Profiles

@@ -10,5 +10,10 @@ namespace CleanArchitecture.Store.Application.Features.Categories.Queries.GetCat
         public decimal Price { get; set; }
         public string Currency { get; set; }
         public int CategoryId { get; set; }
+
+        public string InternationalName { get; set; }
+        public string InternationalUrl { get; set; }
+        public decimal InternationalPrice { get; set; }
+        public string InternationalCurrency { get; set; }
     }
 }
