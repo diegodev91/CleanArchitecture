@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using CleanArchitecture.Store.Application.Contracts.Infrastructure;
 using CleanArchitecture.Store.Application.Contracts.Persistence;
+using CleanArchitecture.Store.Application.Models.ExternalServices;
 using MediatR;
 
 namespace CleanArchitecture.Store.Application.Features.Categories.Queries.GetCategoryById
@@ -14,12 +15,12 @@ namespace CleanArchitecture.Store.Application.Features.Categories.Queries.GetCat
         private readonly IMapper mapper;
         private readonly ICategoryRepository categoryRepository;
         private readonly ICacheService cacheService;
-        private readonly IExternalProductService externalProductService;
+        private readonly ExternalProductService externalProductService;
 
         public GetCategoryListWithProductsQueryHandler(IMapper mapper,
                                                         ICategoryRepository categoryRepository,
                                                         ICacheService cacheService,
-                                                        IExternalProductService externalProductService)
+                                                        ExternalProductService externalProductService)
         {
             this.mapper = mapper;
             this.categoryRepository = categoryRepository;
